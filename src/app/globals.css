@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-white text-slate-700;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-brand-teal-700 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-cyan-400;
+  }
+}
+
+@layer utilities {
+  /* Dark section dot grid — white dots on dark purple bg */
+  .dot-grid-dark {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Light section dot grid */
+  .dot-grid-light {
+    background-image: radial-gradient(circle, rgba(100, 116, 139, 0.1) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Purple-tinted dot grid for purple-tinted light sections */
+  .dot-grid-purple {
+    background-image: radial-gradient(circle, rgba(155, 77, 255, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Ultra-faint purple dot grid for light/white sections */
+  .dot-grid-purple-faint {
+    background-image: radial-gradient(circle, rgba(96, 64, 204, 0.09) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Updated gradient text — purple-violet */
+  .gradient-text-teal {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #9B4DFF 0%, #6040CC 55%, #7558DC 100%);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(155, 77, 255, 0.4), rgba(59, 34, 160, 0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold tracking-[0.15em] uppercase text-brand-teal-700;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

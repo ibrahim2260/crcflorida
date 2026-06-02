@@ -116,20 +116,6 @@ export default function PublicationsPage() {
         </Container>
       </section>
 
-      {/* Disclaimer */}
-      <div className="bg-amber-50 border-b border-amber-100">
-        <Container>
-          <div className="py-3 flex items-start gap-2 text-xs text-amber-700">
-            <span className="font-semibold mt-0.5">Note:</span>
-            <span>
-              Publication list below is illustrative placeholder content.{' '}
-              {/* TODO: replace all publications with real peer-reviewed papers from the team */}
-              Replace with actual publications from PubMed / Google Scholar before launch.
-              See <code className="bg-amber-100 px-1 rounded">DESIGN_NOTES.md</code> for guidance.
-            </span>
-          </div>
-        </Container>
-      </div>
 
       {/* Publications list */}
       <section className="bg-white py-24 lg:py-32">
